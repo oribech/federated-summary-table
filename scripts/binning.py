@@ -66,7 +66,6 @@ class Binning:
             # f1 is the number of point in x1 till the next point
             # x1 is the values in x1 greater or equal to the next point.
             # And the same for x2,f2
-            x1t, x2t = x1[:], x2[:]
             x1, f1 = self.clip_count(x1, next_point)
             x2, f2 = self.clip_count(x2, next_point)
             # Collect the bin and the frequencies, anonymize next point in order to preserve privacy
