@@ -49,7 +49,10 @@ class Binning:
         bins = []
         frequencies1 = []
         frequencies2 = []
-        for i in range(9999):
+        i = 0
+        max_iter_limit = 10**6
+        while True and i < max_iter_limit:
+            i += 1
             # Get next bin (upper) boundary
             next_point = self.next_2d_point(x1, x2)
             # if next point is none it means that it is the end
@@ -71,6 +74,7 @@ class Binning:
             frequencies1.append(f1)
             frequencies2.append(f2)
             assert len(bins) == len(frequencies1) == len(frequencies2)
+        assert i < max_iter_limit, f"max_iter_limit reached: {max_iter_limit}"
 
     def anonymize_boundary(self, next_point, x1, x2):
         """
